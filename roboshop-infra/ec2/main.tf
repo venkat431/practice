@@ -22,7 +22,7 @@ resource "null_resource" "provisioner" {
     }
       inline =[
       "git clone https://github.com/venkat431/practice.git",
-      "cd roboshop-shell",
+      "cd Roboshop-shell",
       "sudo bash ${var.component}.sh"
       ]
   }
