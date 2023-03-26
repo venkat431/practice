@@ -14,14 +14,15 @@ resource "aws_instance" "ec2" {
 
 resource "null_resource" "provisioner" {
   provisioner "remote-exec" {
+    connection {
 
-    host     = aws_instance.ec2.private_ip
-    user     = "centos"
-    password = "DevOps321"
-
- /*   inline [
-      "git clone https://github.com/venkat431/practice"
-      "cd roboshop-shell"
+      host     = aws_instance.ec2.private_ip
+      user     = "centos"
+      password = "DevOps321"
+    }
+  /*  inline [
+      "git clone https://github.com/venkat431/practice",
+      "cd roboshop-shell",
       "sudo bash ${var.component}.sh"
       ]*/
   }
