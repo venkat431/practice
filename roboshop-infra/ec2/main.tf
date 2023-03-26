@@ -1,6 +1,7 @@
 resource "aws_ami" "ami" {
   name   = "centos-8-devops-practice"
-  owner  = "973714476881"
+  image_location = "us-east-1"
+
 
 }
 resource "aws_instance" "ec2" {
@@ -8,7 +9,7 @@ resource "aws_instance" "ec2" {
   instance_type = var.instance_type
 
   tags = {
-    name="${var.component}"
+    name=var.component
   }
 
 
