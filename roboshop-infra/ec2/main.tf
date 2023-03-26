@@ -1,6 +1,6 @@
 resource "aws_ami" "ami" {
   name   = "centos-8-devops-practice"
-  owners = "973714476881"
+  owner  = "973714476881"
 
 }
 resource "aws_instance" "ec2" {
