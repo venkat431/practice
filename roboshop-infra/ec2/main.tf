@@ -1,8 +1,7 @@
 resource "aws_ami" "ami" {
-  name   = "Centos-8-DevOps-Practice"
-  image_location = "us-east-1"
-
-
+  most_recent =true
+  name_regex   = "Centos-8-DevOps-Practice"
+  owners =["973714476881"]
 }
 resource "aws_instance" "ec2" {
   ami           = aws_ami.ami.id
