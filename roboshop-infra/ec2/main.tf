@@ -12,6 +12,21 @@ resource "aws_instance" "ec2" {
   }
 }
 
+resource "null_resource" "provisioner" {
+  provisioner "remote-exec" {
+
+    host     = aws_instance.ec2.private_ip
+    user     = "centos"
+    password = "DevOps321"
+
+ /*   inline [
+      "git clone https://github.com/venkat431/practice"
+      "cd roboshop-shell"
+      "sudo bash ${var.component}.sh"
+      ]*/
+  }
+}
+
 resource "aws_route53_record" "route53" {
   zone_id = "Z08931683BP7DV5GJ0PAA"
   name    = "${var.component}-${var.env}.devops-practice.tech"
