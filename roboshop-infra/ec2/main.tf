@@ -20,7 +20,7 @@ resource "null_resource" "provisioner" {
       user     = "centos"
       password = "DevOps321"
     }
-      inline [
+      inline =[
       "git clone https://github.com/venkat431/practice",
       "cd roboshop-shell",
       "sudo bash ${var.component}.sh"
