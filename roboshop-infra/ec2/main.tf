@@ -10,9 +10,19 @@ resource "aws_instance" "ec2" {
   tags = {
     Name = var.component
   }
-
-
 }
+
+resource "aws_route53_record" "route53" {
+  zone_id = aws_instance.ec2.id
+  name    = "${var.component}-${var.env}.devops-practice.tech"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.ec2.private_ip]
+}
+
 
 variable "component" {}
 variable "instance_type" {}
+variable "env" {
+  default = "dev"
+}
