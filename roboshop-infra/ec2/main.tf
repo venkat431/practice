@@ -1,5 +1,5 @@
 resource "aws_ami" "ami" {
-  name   = "centos-8-devops-practice"
+  name   = "Centos-8-DevOps-Practice"
   image_location = "us-east-1"
 
 
