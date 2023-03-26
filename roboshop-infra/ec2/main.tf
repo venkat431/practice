@@ -20,6 +20,31 @@ resource "aws_route53_record" "route53" {
   records = [aws_instance.ec2.private_ip]
 }
 
+resource "aws_security_group" "sg" {
+  name        = "${var.component}-${env}-sg"
+  description = "${var.component}-${env}-sg"
+  vpc_id      = aws_instance.ec2.private_ip
+
+  ingress {
+    description      = "SSH"
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "${var.component}-${env}-sg"
+  }
+}
+
 
 variable "component" {}
 variable "instance_type" {}
