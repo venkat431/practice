@@ -21,8 +21,8 @@ resource "aws_route53_record" "route53" {
 }
 
 resource "aws_security_group" "sg" {
-  name        = "${var.component}-${env}-sg"
-  description = "${var.component}-${env}-sg"
+  name        = "${var.component}-${var.env}-sg"
+  description = "${var.component}-${var.env}-sg"
 
   ingress {
     description      = "SSH"
@@ -40,7 +40,7 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "${var.component}-${env}-sg"
+    Name = "${var.component}-${var.env}-sg"
   }
 }
 
